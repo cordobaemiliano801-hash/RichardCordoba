@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Richard Córdoba | Film Composer & Sound Designer</title>
+  <meta name="description" content="Richard Córdoba is a Colombian-American film composer, sound designer, music supervisor, and recordist based in Bogotá, Colombia." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #07101f;
+      --bg-soft: #0c1a2e;
+      --bg-card: rgba(255,255,255,0.045);
+      --bg-card-hover: rgba(201,168,76,0.08);
+      --gold: #c9a84c;
+      --gold-light: #f0d480;
+      --text: #f4efe7;
+      --muted: #b8b1a8;
+      --muted-2: #7e8794;
+      --line: rgba(201,168,76,0.22);
+      --white-line: rgba(255,255,255,0.09);
+      --shadow: 0 24px 80px rgba(0,0,0,0.28);
+      --radius: 22px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 15% 5%, rgba(201,168,76,0.13), transparent 28%),
+        radial-gradient(circle at 90% 15%, rgba(61,110,164,0.15), transparent 30%),
+        linear-gradient(180deg, #06101e 0%, var(--bg) 48%, #040913 100%);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    .top-line {
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+      background-size: 220% 100%;
+      animation: shimmer 5s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .site {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(7,16,31,0.72);
+      border-bottom: 1px solid var(--white-line);
+    }
+
+    .nav-inner {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .brand span { color: var(--gold-light); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover { color: var(--gold-light); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(201,168,76,0.1);
+      color: var(--gold-light);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: rgba(201,168,76,0.17);
+      border-color: rgba(240,212,128,0.7);
+    }
+
+    .btn.secondary {
+      color: var(--text);
+      border-color: var(--white-line);
+      background: rgba(255,255,255,0.055);
+    }
+
+    .hero {
+      min-height: calc(100vh - 78px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
+      gap: 48px;
+      align-items: center;
+      padding: 82px 0 72px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+      font-family: 'DM Mono', monospace;
+      color: var(--gold-light);
+      font-size: 12px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: '';
+      width: 42px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    h1 {
+      max-width: 820px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(62px, 9vw, 118px);
+      line-height: .88;
+      letter-spacing: -0.055em;
+      font-weight: 700;
+    }
+
+    h1 span { color: var(--gold-light); }
+
+    .hero-subtitle {
+      margin-top: 26px;
+      max-width: 675px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.9;
+      font-weight: 300;
+    }
+
+    .hero-subtitle strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      margin-top: 34px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .hero-panel {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.035));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      min-height: 520px;
+    }
+
+    .hero-panel::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(201,168,76,0.04), rgba(7,16,31,0.92)),
+        url('images/images/PHOTO-2026-05-16-12-46-06 4.jpg') center/cover;
+      opacity: .78;
+    }
+
+    .hero-card-content {
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: 24px;
+      padding: 24px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 18px;
+      background: rgba(4,9,19,0.72);
+      backdrop-filter: blur(16px);
+    }
+
+    .hero-card-content .label {
+      font-family: 'DM Mono', monospace;
+      color: var(--gold-light);
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .hero-card-content p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .stat {
+      padding: 14px;
+      border: 1px solid var(--white-line);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--gold-light);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .11em;
+    }
+
+    .section {
+      padding: 78px 0;
+      border-top: 1px solid var(--white-line);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 36px;
+      align-items: start;
+      margin-bottom: 34px;
+    }
+
+    .kicker {
+      font-family: 'DM Mono', monospace;
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1;
+      letter-spacing: -0.035em;
+      font-weight: 700;
+    }
+
+    .section-copy {
+      margin-top: 16px;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.85;
+      font-weight: 300;
+    }
+
+    .expertise {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .expertise-card,
+    .film-card,
+    .recording-item,
+    .edu-item,
+    .quote-card,
+    .visual-card {
+      border: 1px solid var(--white-line);
+      background: var(--bg-card);
+      border-radius: 18px;
+      transition: border-color .22s ease, transform .22s ease, background .22s ease;
+    }
+
+    .expertise-card:hover,
+    .film-card:hover,
+    .recording-item:hover,
+    .edu-item:hover,
+    .visual-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(240,212,128,0.48);
+      background: var(--bg-card-hover);
+    }
+
+    .expertise-card {
+      padding: 22px;
+      min-height: 155px;
+    }
+
+    .expertise-card .icon {
+      font-size: 26px;
+      margin-bottom: 14px;
+    }
+
+    .expertise-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      line-height: 1.05;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .expertise-card p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .visual-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 16px;
+      margin-top: 34px;
+    }
+
+    .visual-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 360px;
+      box-shadow: var(--shadow);
+    }
+
+    .visual-stack {
+      display: grid;
+      gap: 16px;
+    }
+
+    .visual-stack .visual-card { min-height: 172px; }
+
+    .visual-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: .82;
+      filter: saturate(.92) contrast(1.04);
+      transition: transform .35s ease, opacity .35s ease;
+    }
+
+    .visual-card:hover img { transform: scale(1.04); opacity: .96; }
+
+    .visual-label {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(4,9,19,0.72);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(14px);
+    }
+
+    .visual-label strong {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 25px;
+      line-height: 1.05;
+      margin-bottom: 4px;
+    }
+
+    .visual-label span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-family: 'DM Mono', monospace;
+    }
+
+    .film-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .film-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 190px;
+      padding: 22px;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .film-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      opacity: .85;
+    }
+
+    .film-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 25px;
+      line-height: 1.04;
+      font-style: italic;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .film-meta {
+      color: var(--gold-light);
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      line-height: 1.55;
+    }
+
+    .film-role {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .badge {
+      display: inline-flex;
+      width: fit-content;
+      margin-top: 16px;
+      padding: 6px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(201,168,76,0.28);
+      color: var(--gold-light);
+      background: rgba(201,168,76,0.08);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .poster-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .poster-card {
+      border: 1px solid var(--white-line);
+      border-radius: 18px;
+      overflow: hidden;
+      background: var(--bg-card);
+      transition: .22s ease;
+    }
+
+    .poster-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(240,212,128,0.48);
+      background: var(--bg-card-hover);
+    }
+
+    .poster-card img {
+      width: 100%;
+      height: 255px;
+      object-fit: cover;
+      filter: saturate(.95) contrast(1.04);
+    }
+
+    .poster-card div { padding: 16px; }
+    .poster-card strong { display: block; color: var(--text); font-size: 14px; margin-bottom: 4px; }
+    .poster-card span { color: var(--muted); font-size: 12px; }
+
+    .recording-list,
+    .education-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .recording-item {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 18px;
+      padding: 20px;
+      align-items: center;
+    }
+
+    .recording-item .icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.2);
+      font-size: 24px;
+    }
+
+    .recording-title {
+      font-size: 16px;
+      color: var(--text);
+      font-weight: 650;
+      margin-bottom: 3px;
+    }
+
+    .recording-detail {
+      color: var(--muted);
+      font-size: 13px;
+      font-family: 'DM Mono', monospace;
+      line-height: 1.6;
+    }
+
+    .education-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .edu-item {
+      padding: 22px;
+      min-height: 150px;
+    }
+
+    .edu-years {
+      display: inline-flex;
+      margin-bottom: 12px;
+      color: var(--gold-light);
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .08em;
+    }
+
+    .edu-degree {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      line-height: 1.05;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .edu-school {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .quote-card {
+      padding: 38px;
+      border-color: var(--line);
+      background:
+        linear-gradient(135deg, rgba(201,168,76,0.12), rgba(255,255,255,0.035));
+    }
+
+    .quote-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(28px, 4vw, 46px);
+      line-height: 1.2;
+      color: var(--text);
+      max-width: 980px;
+    }
+
+    .quote-source {
+      margin-top: 22px;
+      font-family: 'DM Mono', monospace;
+      color: var(--gold-light);
+      font-size: 12px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .skills-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--white-line);
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      font-size: 13px;
+      transition: all .2s ease;
+    }
+
+    .skill:hover {
+      color: var(--gold-light);
+      border-color: var(--line);
+      background: rgba(201,168,76,0.08);
+    }
+
+    .language-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .language-card {
+      padding: 22px;
+      border-radius: 18px;
+      border: 1px solid var(--white-line);
+      background: var(--bg-card);
+    }
+
+    .language-card strong {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .level { display: flex; gap: 6px; }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      border: 1px solid var(--gold);
+      opacity: .8;
+    }
+
+    .dot.filled { background: var(--gold); }
+
+    .contact-section {
+      padding: 80px 0 90px;
+      text-align: center;
+    }
+
+    .contact-card {
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 52px 34px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.035));
+      box-shadow: var(--shadow);
+    }
+
+    .contact-card h2 { margin-bottom: 16px; }
+
+    .contact-card p {
+      max-width: 650px;
+      margin: 0 auto 28px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.85;
+    }
+
+    .featured {
+      margin: 26px auto 30px;
+      padding: 24px;
+      border: 1px solid rgba(201,168,76,0.22);
+      border-radius: 18px;
+      background: rgba(201,168,76,0.05);
+      text-align: left;
+      max-width: 900px;
+    }
+
+    .featured-label {
+      font-family: 'DM Mono', monospace;
+      color: var(--gold-light);
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .featured h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .featured p {
+      max-width: none;
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    footer {
+      border-top: 1px solid var(--white-line);
+      padding: 28px 0;
+      color: var(--muted-2);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 980px) {
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; padding-top: 58px; }
+      .hero-panel { min-height: 430px; }
+      .section-head { grid-template-columns: 1fr; gap: 14px; }
+      .expertise { grid-template-columns: repeat(2, 1fr); }
+      .film-grid { grid-template-columns: repeat(2, 1fr); }
+      .education-list { grid-template-columns: 1fr; }
+      .visual-grid { grid-template-columns: 1fr; }
+      .poster-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .site, .nav-inner { width: min(100% - 28px, 1160px); }
+      .nav-inner { height: 66px; }
+      .brand { font-size: 23px; }
+      .hero { padding: 42px 0 58px; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .btn { width: 100%; }
+      .hero-panel { min-height: 380px; }
+      .hero-card-content { left: 14px; right: 14px; bottom: 14px; padding: 18px; }
+      .stats { grid-template-columns: 1fr; }
+      .section { padding: 56px 0; }
+      .expertise, .film-grid, .language-grid, .poster-grid { grid-template-columns: 1fr; }
+      .recording-item { grid-template-columns: 1fr; }
+      .quote-card { padding: 28px 22px; }
+      footer { flex-direction: column; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top-line"></div>
+
+  <nav class="nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a class="brand" href="#top">Richard <span>Córdoba</span></a>
+      <div class="nav-links">
+        <a href="#profile">Profile</a>
+        <a href="#filmography">Filmography</a>
+        <a href="#recording">Recording</a>
+        <a href="#education">Education</a>
+      </div>
+      <a class="btn" href="https://soundcloud.com/richard-cordoba" target="_blank" rel="noopener">Listen</a>
+    </div>
+  </nav>
+
+  <main id="top" class="site">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Bogotá · New York · Cinema</div>
+        <h1>Richard <span>Córdoba</span></h1>
+        <p class="hero-subtitle">
+          Colombian-American <strong>film composer, sound designer, music supervisor, and recordist</strong> with more than two decades of experience creating music and sound for feature films, documentaries, theater, and cultural projects.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="https://www.imdb.com/name/nm3069452/" target="_blank" rel="noopener">View IMDb</a>
+          <a class="btn secondary" href="https://www.linkedin.com/in/richard-cordoba-725a0b52" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn secondary" href="#filmography">Selected Work</a>
+        </div>
+      </div>
+
+      <aside class="hero-panel" aria-label="Featured profile card">
+        <div class="hero-card-content">
+          <div class="label">Film Composer & Sound Artist</div>
+          <p>
+            A cinematic language shaped by Colombian folk traditions, jazz, orchestral writing, field recordings, and emotional storytelling.
+          </p>
+          <div class="stats">
+            <div class="stat"><strong>20+</strong><span>Years</span></div>
+            <div class="stat"><strong>30+</strong><span>Projects</span></div>
+            <div class="stat"><strong>3</strong><span>Languages</span></div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="profile" class="section">
+      <div class="section-head">
+        <div class="kicker">Profile</div>
+        <div>
+          <h2>Music rooted in identity, memory, and cinematic emotion.</h2>
+          <p class="section-copy">
+            Richard Córdoba is a Colombian-American film composer, sound designer, and music supervisor trained in New York at some of the world’s most respected music institutions. After moving to Bogotá in 2004, he developed a distinctive voice in Latin American film music, collaborating with acclaimed directors including Ciro Guerra, Annie Canavaggio, and Juan Mejía Botero. His work combines Colombian folk traditions, jazz language, contemporary orchestration, and field recording into scores that serve story, character, and place.
+          </p>
+        </div>
+      </div>
+
+      <div class="expertise">
+        <div class="expertise-card"><div class="icon">🎬</div><h3>Film Scoring</h3><p>Original music for fiction, documentary, and character-driven cinema.</p></div>
+        <div class="expertise-card"><div class="icon">🎚️</div><h3>Sound Design</h3><p>Detailed sonic environments shaped through recording, editing, and post-production.</p></div>
+        <div class="expertise-card"><div class="icon">🎙️</div><h3>Recording</h3><p>Live, location, field, and music recording across diverse cultural contexts.</p></div>
+        <div class="expertise-card"><div class="icon">🌿</div><h3>Bioacoustics</h3><p>Environmental listening, wildlife sound, and ecological sound research.</p></div>
+      </div>
+
+      <div class="visual-grid">
+        <div class="visual-card">
+          <img src="images/images/PHOTO-2026-05-16-12-46-06 4.jpg" alt="Richard Córdoba with field recording equipment">
+          <div class="visual-label"><strong>Field recording and cinematic sound</strong><span>Location sound · documentary work · sonic storytelling</span></div>
+        </div>
+        <div class="visual-stack">
+          <div class="visual-card">
+            <img src="images/images/PHOTO-2026-05-16-12-46-05 3.jpg" alt="Professional sound studio">
+            <div class="visual-label"><strong>Studio work</strong><span>Composition · mixing · post-production</span></div>
+          </div>
+          <div class="visual-card">
+            <img src="images/images/PHOTO-2026-05-16-12-46-03.jpg" alt="Richard Córdoba in a recording studio">
+            <div class="visual-label"><strong>Music production</strong><span>Film scoring · recording · arranging</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="filmography" class="section">
+      <div class="section-head">
+        <div class="kicker">Selected Filmography</div>
+        <div>
+          <h2>Selected work across fiction, documentary, and festival cinema.</h2>
+          <p class="section-copy">A curated selection of projects highlighting composition, sound design, music supervision, field recording, and post-production work.</p>
+        </div>
+      </div>
+
+      <div class="poster-grid">
+        <a class="poster-card" href="#"><img src="images/images/PHOTO-2026-05-16-12-46-06 6.jpg" alt="En Busca del Indio Conejo"><div><strong>En Busca del Indio Conejo</strong><span>Documentary</span></div></a>
+        <a class="poster-card" href="#"><img src="images/images/PHOTO-2026-05-16-12-46-06.jpg" alt="Survive the Raft"><div><strong>Survive the Raft</strong><span>Documentary Series</span></div></a>
+        <a class="poster-card" href="https://www.imdb.com/title/tt30320521/" target="_blank" rel="noopener"><img src="images/images/PHOTO-2026-05-16-12-46-05 6.jpg" alt="Igualada"><div><strong>Igualada</strong><span>Sundance Film Festival</span></div></a>
+        <a class="poster-card" href="#"><img src="images/images/PHOTO-2026-05-16-12-46-03 2.jpg" alt="Yo No Me Llamo Rubén Blades"><div><strong>Yo No Me Llamo Rubén Blades</strong><span>Location Recordist</span></div></a>
+      </div>
+
+      <div style="height: 22px"></div>
+
+      <div class="film-grid">
+        <a class="film-card" href="https://www.imdb.com/title/tt0382308/" target="_blank" rel="noopener"><div><div class="film-title">La Sombra del Caminante</div><div class="film-meta">Dir. Ciro Guerra · 2004</div><div class="film-role">Composer</div></div><span class="badge">Tribeca · San Sebastián · Macondo</span></a>
+        <a class="film-card" href="https://www.imdb.com/title/tt6932910/" target="_blank" rel="noopener"><div><div class="film-title">Hijo de Tigre y Mula</div><div class="film-meta">Dir. Annie Canavaggio · 2025</div><div class="film-role">Composer · Sound Designer · Music Supervisor</div></div><span class="badge">Panama Canal Documentary</span></a>
+        <a class="film-card" href="https://www.imdb.com/title/tt30320521/" target="_blank" rel="noopener"><div><div class="film-title">Igualada</div><div class="film-meta">Dir. Juan Mejía Botero · 2024</div><div class="film-role">Composer</div></div><span class="badge">Sundance Film Festival</span></a>
+        <a class="film-card" href="https://www.imdb.com/name/nm3069452/" target="_blank" rel="noopener"><div><div class="film-title">Death is the Place on Earth</div><div class="film-meta">Feature Film</div><div class="film-role">Composer · Sound Department</div></div></a>
+        <a class="film-card" href="https://www.imdb.com/name/nm3069452/" target="_blank" rel="noopener"><div><div class="film-title">Long Gone Heroes</div><div class="film-meta">Feature Film</div><div class="film-role">Composer · Sound Department</div></div></a>
+        <a class="film-card" href="https://www.imdb.com/name/nm3069452/" target="_blank" rel="noopener"><div><div class="film-title">Playing Lecuona</div><div class="film-meta">Documentary</div><div class="film-role">Location Recordist — Chucho Valdés, Gonzalo Rubalcaba, Michel Camilo</div></div></a>
+        <a class="film-card" href="https://www.imdb.com/name/nm3069452/" target="_blank" rel="noopener"><div><div class="film-title">Yo No Me Llamo Rubén Blades</div><div class="film-meta">Documentary</div><div class="film-role">Location Recordist — Rubén Blades a cappella</div></div></a>
+        <a class="film-card" href="https://www.imdb.com/name/nm3069452/" target="_blank" rel="noopener"><div><div class="film-title">Aluna</div><div class="film-meta">Dir. Alan Ereira · BBC</div><div class="film-role">Field Recordings — Sierra Nevada Sacred Chants</div></div></a>
+        <a class="film-card" href="https://www.imdb.com/title/tt6802640/" target="_blank" rel="noopener"><div><div class="film-title">Riosucio</div><div class="film-meta">Feature Film · 2022</div><div class="film-role">Composer · Sound Department</div></div></a>
+      </div>
+    </section>
+
+    <section id="recording" class="section">
+      <div class="section-head">
+        <div class="kicker">Recording Work</div>
+        <div>
+          <h2>Live, location, and field recording for artists, films, and cultural archives.</h2>
+        </div>
+      </div>
+
+      <div class="recording-list">
+        <div class="recording-item"><div class="icon">🎷</div><div><div class="recording-title">Miles Davis — Wall to Wall · Symphony Space, NYC</div><div class="recording-detail">Live Mixer & Recordist for Wallace Roney & Adam Holzman · 2001</div></div></div>
+        <div class="recording-item"><div class="icon">🎹</div><div><div class="recording-title">Playing Lecuona — Chucho Valdés, Gonzalo Rubalcaba, Michel Camilo</div><div class="recording-detail">Location Recordist · Musical Documentary</div></div></div>
+        <div class="recording-item"><div class="icon">🎤</div><div><div class="recording-title">Rubén Blades — A Cappella · Panama</div><div class="recording-detail">Location Recordist · Yo No Me Llamo Rubén Blades</div></div></div>
+        <div class="recording-item"><div class="icon">🌿</div><div><div class="recording-title">Sacred Chants of the Mamos — Sierra Nevada de Santa Marta</div><div class="recording-detail">Field Recordings for BBC documentary Aluna</div></div></div>
+        <div class="recording-item"><div class="icon">🎭</div><div><div class="recording-title">9 Windows / 9 Ventanas — La MaMa Theater, NYC</div><div class="recording-detail">Original Score · Spolettino Festival, Umbria, Italy · The Village Voice · 2002</div></div></div>
+      </div>
+    </section>
+
+    <section id="education" class="section">
+      <div class="section-head">
+        <div class="kicker">Education & Training</div>
+        <div>
+          <h2>Classical training, jazz language, cinema, preservation, and sound ecology.</h2>
+        </div>
+      </div>
+
+      <div class="education-list">
+        <div class="edu-item"><span class="edu-years">1983 – 1993</span><div class="edu-degree">Music Studies</div><div class="edu-school">Boys Harbor School · New York — Maestro Rolando Briceño</div></div>
+        <div class="edu-item"><span class="edu-years">1986 – 1987</span><div class="edu-degree">Composition & Orchestration</div><div class="edu-school">Mannes Conservatory · New York</div></div>
+        <div class="edu-item"><span class="edu-years">1989 – 1993</span><div class="edu-degree">Jazz Arranging</div><div class="edu-school">Long Island University · Scholarship · Peter Yellin</div></div>
+        <div class="edu-item"><span class="edu-years">1996 – 2002</span><div class="edu-degree">Composition</div><div class="edu-school">City University of New York · Jazz Festival Winner 2002</div></div>
+        <div class="edu-item"><span class="edu-years">2006 – 2015</span><div class="edu-degree">Film Scoring Workshops</div><div class="edu-school">Berta Navarro · Mexico — Peter Golub, Eduardo Gamboa, Leonardo Heiblum</div></div>
+        <div class="edu-item"><span class="edu-years">2017</span><div class="edu-degree">Bioacoustics Fellowship</div><div class="edu-school">Smithsonian · George Mason University — Wildlife & Ecology Conservation</div></div>
+        <div class="edu-item"><span class="edu-years">2019</span><div class="edu-degree">Film Preservation & Restoration</div><div class="edu-school">L'Immagine Ritrovata · Bologna — Scholarship</div></div>
+        <div class="edu-item"><span class="edu-years">2024</span><div class="edu-degree">Film & Audiovisual Production</div><div class="edu-school">Universidad del Magdalena · Proimágenes en Movimiento Full Scholarship</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="quote-card">
+        <div class="quote-text">“Music is the universal language — the one that penetrates the soul. It transcends words. It establishes cinematic spaces, humanizes characters, and speaks from their truth and origin.”</div>
+        <div class="quote-source">Richard Córdoba · Mediapart Interview</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div class="kicker">Skills & Languages</div>
+        <div>
+          <h2>Technical, musical, and cultural fluency.</h2>
+        </div>
+      </div>
+
+      <div class="skills-wrap">
+        <span class="skill">Film Scoring</span><span class="skill">Orchestration</span><span class="skill">Jazz Arranging</span><span class="skill">Sound Design</span><span class="skill">Post-Production</span><span class="skill">Music Supervision</span><span class="skill">Location Recording</span><span class="skill">Live Sound Mixing</span><span class="skill">Bioacoustics</span><span class="skill">Audio Restoration</span><span class="skill">Colombian Folk Rhythms</span><span class="skill">Big Band Writing</span><span class="skill">Documentary Scoring</span><span class="skill">Field Recording</span><span class="skill">Film Preservation</span><span class="skill">Music Education</span>
+      </div>
+
+      <div style="height: 28px"></div>
+
+      <div class="language-grid">
+        <div class="language-card"><strong>Spanish</strong><div class="level"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div></div>
+        <div class="language-card"><strong>English</strong><div class="level"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div></div>
+        <div class="language-card"><strong>French</strong><div class="level"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div></div>
+      </div>
+    </section>
+
+    <section class="contact-section">
+      <div class="contact-card">
+        <h2>Selected work, collaborations, and professional inquiries.</h2>
+        <p>Explore Richard Córdoba’s music, credits, and professional profile through the links below.</p>
+
+        <div class="featured">
+          <div class="featured-label">Featured Recognition</div>
+          <h3>Smithsonian Recognition & Professional Masterclass</h3>
+          <p>
+            Featured by the <strong>Smithsonian</strong> and recognized for contributions to music, sound, and audiovisual storytelling. Richard Córdoba also shares his professional approach to sound design and cinematic composition through international masterclasses and educational sessions.
+          </p>
+          <div style="display:flex; flex-wrap:wrap; gap:12px;">
+            <a class="btn" href="https://music.si.edu/events?trumbaEmbed=view%3Devent%26eventid%3D140815142" target="_blank" rel="noopener">Smithsonian Event</a>
+            <a class="btn secondary" href="https://www.youtube.com/watch?v=cOgcdrsCzVY" target="_blank" rel="noopener">Watch Masterclass</a>
+          </div>
+        </div>
+
+        <div class="contact-links">
+          <a class="btn" href="https://soundcloud.com/richard-cordoba" target="_blank" rel="noopener">SoundCloud</a>
+          <a class="btn secondary" href="https://www.imdb.com/name/nm3069452/" target="_blank" rel="noopener">IMDb</a>
+          <a class="btn secondary" href="https://www.linkedin.com/in/richard-cordoba-725a0b52" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© Richard Córdoba</div>
+      <div>Film Composer · Sound Designer · Music Supervisor</div>
+    </footer>
+  </main>
+</body>
+</html>
